@@ -13,7 +13,7 @@ if ($id_lista > 0) {
     $tarefas = $stmt->fetchAll();
     
     if ($tarefas) {
-        include "pegar_nome_lista.php";
+        include "../controller/pegar_nome_lista.php";
         print "<div class='menu-overlay' id='menu'>
         <button class='close-btn' onclick='fecharMenu()'>×</button>
         <h3>Criar Tarefa</h3>
@@ -44,6 +44,8 @@ if ($id_lista > 0) {
         
     } else {
         print "<p>Nenhuma tarefa encontrada para esta lista.</p>";
+        print "<button class='open-btn ' onclick=
+        'abrirMenu()'>🖊 Nova Tarefa</button>";
     }
 } else {
     print "<p>Lista de tarefas não encontrada.</p>";  

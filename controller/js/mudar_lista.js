@@ -6,7 +6,7 @@ function carregarConteudo(listaId) {
         }
     };
     
-    xhttp.open("GET", "../controller/pegar_lista_e_tarefas.php?id=" + listaId, true);
+    xhttp.open("GET", "../view/pegar_lista_e_tarefas.php?id=" + listaId, true);
     xhttp.send();
 }
 

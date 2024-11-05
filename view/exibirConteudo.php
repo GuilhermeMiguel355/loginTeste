@@ -4,6 +4,7 @@
         print("<div class='conteudo-principal' id='conteudo-principal'>
             <h2>Aqui estarão suas tarefas</h2>
             <p>Selecione uma lista de tarefas</p>
+            <div id='menu'></div>
             </div>")
             
         ?>
