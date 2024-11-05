@@ -31,8 +31,8 @@ if ($id_lista > 0) {
 
         //NOME DA LISTA ATUAL
         print "<h2>".$lista[0]['nome']."</h2>";
+        //PERCORRER E MOSTRAR CADA TAREFA
         foreach ($tarefas as $tarefa) {
-            
             print "<div class='card-tarefa' id='tarefa-".$tarefa['id']."' style='margin-bottom: 2em'>";
             print "<strong><h2>" 
                     .$tarefa['nome'] . "</h2></strong> " .$tarefa['descricao'] .
