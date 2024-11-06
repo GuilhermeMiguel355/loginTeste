@@ -28,7 +28,7 @@
                         </div>";
                         include("..\controller\pegar_listas.php");
                         foreach($listas as $lista){
-                            print "<div class='row align-items-center' id='lista-".$lista['id']."'><button href='#' class='card-lista col-sm-8' onclick='carregarConteudo(" .$lista['id'].")'>" .$lista['nome']. "</button><button class='btn btn-danger col-sm-4 h-75' onclick='excluirLista(".$lista['id'].")'>X</button></div>";
+                            print "<div class='row align-items-center' id='lista-".$lista['id']."'><button href='#' class='card-lista col-sm-8' onclick='carregarConteudo(" .$lista['id'].")'>" .$lista['nome']. "</button><button class='btn btn-danger col-sm-2 h-73' onclick='excluirLista(".$lista['id'].")'>🗑️</button></div>";
                         }    
                     ?>
 
