@@ -11,7 +11,8 @@ if ($id_lista > 0) {
     $stmt = $conn->prepare("SELECT id,nome, descricao, data_criacao, data_conclusao, situacao, id_lista_tarefa FROM tarefas WHERE id_lista_tarefa = ?");
     $stmt->execute([$id_lista]);
     $tarefas = $stmt->fetchAll();
-    
+    print "<button class='open-btn ' onclick=
+    'abrirMenu()'>🖊 Nova Tarefa</button>";
     if ($tarefas) {
         include "../controller/pegar_nome_lista.php";
         print "<div class='menu-overlay' id='menu'>
@@ -36,16 +37,12 @@ if ($id_lista > 0) {
             print "<div class='card-tarefa' id='tarefa-".$tarefa['id']."' style='margin-bottom: 2em'>";
             print "<strong><h2>" 
                     .$tarefa['nome'] . "</h2></strong> " .$tarefa['descricao'] .
-                "<div><button class='btn btn-primary'>Editar tarefa</button> <button class='btn btn-danger' onclick='excluirTarefa(".$tarefa['id'].','.$tarefa['id_lista_tarefa']. ")'>Excluir Tarefa</button></div>
+                "<div><button class='btn btn-primary'>Editar tarefa</button> <button class='btn btn-danger' onclick='excluirTarefa(".$tarefa['id'].','.$tarefa['id_lista_tarefa']. ")'>Excluir Tarefa</button> <button class= 'checkbtn' onclick='checkIcon()'>⬜</button></div>
                 </div>";
-        }
-        print "<button class='open-btn ' onclick=
-        'abrirMenu()'>🖊 Nova Tarefa</button>";
-        
+        } 
     } else {
         print "<p>Nenhuma tarefa encontrada para esta lista.</p>";
-        print "<button class='open-btn ' onclick=
-        'abrirMenu()'>🖊 Nova Tarefa</button>";
+        
     }
 } else {
     print "<p>Lista de tarefas não encontrada.</p>";  
