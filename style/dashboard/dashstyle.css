@@ -132,6 +132,15 @@ button{
 .menu-overlay ul li a:hover {
     color: #ddd;
 }
+/*estilo botao check*/
+.checkbtn{
+    padding: 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 5px;
+    justify-content: center;
+}
 
 /* Botão para fechar o menu */
 .close-btn {
