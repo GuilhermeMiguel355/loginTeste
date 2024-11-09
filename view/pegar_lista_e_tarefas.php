@@ -37,7 +37,7 @@ if ($id_lista > 0) {
             print "<div class='card-tarefa' id='tarefa-".$tarefa['id']."' style='margin-bottom: 2em'>";
             print "<strong><h2>" 
                     .$tarefa['nome'] . "</h2></strong> " .$tarefa['descricao'] .
-                "<div><button class='btn btn-primary'>Editar tarefa</button> <button class='btn btn-danger' onclick='excluirTarefa(".$tarefa['id'].','.$tarefa['id_lista_tarefa']. ")'>Excluir Tarefa</button> <button class= 'checkbtn' onclick='checkIcon()'>⬜</button></div>
+                "<div><button class='btn btn-primary'>Editar tarefa</button> <button class='btn btn-danger' onclick='excluirTarefa(".$tarefa['id'].','.$tarefa['id_lista_tarefa']. ")'>Excluir Tarefa</button> <button class='checkbtn' onclick='checkIcon(".$tarefa['id'].",".$tarefa['situacao'].")'>⬜</button></div>
                 </div>";
         } 
     } else {

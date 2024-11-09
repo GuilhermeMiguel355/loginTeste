@@ -1,11 +1,15 @@
 // function q muda o icone do botao quando apreta
-function checkIcon(){
-    var chkbtn = document.getElementById("checkbtn");
+function checkIcon(idCheck, situacao){
 
-    // enquanto for ⬜ muda para ✅. se for ✅ volta para ⬜
-    if (chkbtn.textContent === "⬜") {
-        chkbtn.textContent = "✅";
-            } else {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "../controller/excluir_tarefa.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var chkbtn = document.getElementById(idCheck);
+
+    if (situacao == "completa") {
+        chkbtn.textContent = "✅"; 
+    }else{
         chkbtn.textContent = "⬜";
     }
+
 }
