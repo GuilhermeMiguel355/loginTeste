@@ -13,9 +13,7 @@ if ($id_lista > 0) {
     $tarefas = $stmt->fetchAll();
     print "<button class='open-btn ' onclick=
     'abrirMenu()'>🖊 Nova Tarefa</button>";
-    if ($tarefas) {
-        include "../controller/pegar_nome_lista.php";
-        print "<div class='menu-overlay' id='menu'>
+    print "<div class='menu-overlay' id='menu'>
         <button class='close-btn' onclick='fecharMenu()'>×</button>
         <h3>Criar Tarefa</h3>
         <ul>
@@ -29,6 +27,9 @@ if ($id_lista > 0) {
         </ul>
         </div>
         </div>";
+    if ($tarefas) {
+        include "../controller/pegar_nome_lista.php";
+        
 
         //NOME DA LISTA ATUAL
         print "<h2>".$lista[0]['nome']."</h2>";
