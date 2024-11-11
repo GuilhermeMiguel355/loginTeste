@@ -1,22 +1,25 @@
 <?php
-include("../model/link.php");
-session_start(); 
+include_once '../model/link.php';  // Certifique-se de que a conexão está correta
+ 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['id']) {
+    
+    $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
+    $estado = isset($_POST['situacao']) ? $_POST['situacao'] : '';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    $id_lista = $_POST['id_lista'];
-    $situacao = $_POST['situacao'];
-    try {
-        $sql = "UPDATE INTO tarefas SET situacao = ? WHERE id= ?";
+    if ($id && ($estado === 'pendente' || $estado === 'completa')) {
+        $sql="UPDATE tarefas SET situacao = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
-        if ($situacao == "pendente") {
-            $stmt->execute(["completa", $id_lista ]);
-        }else{
-            $stmt->execute(["pendente", $id_lista ]);
+        $stmt->execute([$estado, $id]);
+
+        if ($stmt->execute()) {
+            echo "Estado atualizado com sucesso";
+        } else {
+            $erroInfo = $stmt->errorInfo();
+            echo "Erro ao atualizar o estado: " . $erroInfo[2];
         }
-        
-    } catch (PDOException $e) {
-        echo "Erro ao inserir tarefa: " . $e->getMessage();
+    } else {
+        echo "Dados inválidos";
     }
-    
+} else {
+    echo "Método de requisição inválido";
 }

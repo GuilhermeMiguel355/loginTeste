@@ -33,10 +33,10 @@ if(empty($_SESSION)){
     <script src="..\controller\js\excluir_lista.js"></script>
     <script src="..\controller\js\criar_lista.js"></script>
     <script src="..\controller\js\excluir.js"></script>
-    <script src="..\controller\js\modificar_tarefas.js"></script>
     <script src="..\controller\js\menu.js"></script>
     <script src="..\controller\js\mudar_lista.js"></script>
     <script src="..\controller\js\checkbtn.js"></script>
+    <script src="..\controller\js\criar_tarefa.js"></script>
     
 </body>
 

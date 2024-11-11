@@ -1,15 +1,18 @@
 // function q muda o icone do botao quando apreta
-function checkIcon(idCheck, situacao){
+function checkIcon(tarefaId, situacao){
+    let novoEstado = situacao === 'pendente' ? 'completa' : 'pendente';
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "../controller/excluir_tarefa.php", true);
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("POST", "../controller/editar_tarefa.php", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var chkbtn = document.getElementById(idCheck);
 
-    if (situacao == "completa") {
-        chkbtn.textContent = "✅"; 
-    }else{
-        chkbtn.textContent = "⬜";
-    }
-
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            
+            const botao = document.getElementById('check-' + tarefaId);
+            botao.innerText = (novoEstado === 'pendente') ? '⬜' : '✅';
+            botao.setAttribute('onclick', `checkIcon(${tarefaId}, "${novoEstado}")`);
+        }
+    };
+    xhttp.send(`id=${tarefaId}&situacao=${novoEstado}`);
 }

@@ -37,9 +37,17 @@ if ($id_lista > 0) {
         foreach ($tarefas as $tarefa) {
             print "<div class='card-tarefa' id='tarefa-".$tarefa['id']."' style='margin-bottom: 2em'>";
             print "<strong><h2>" 
-                    .$tarefa['nome'] . "</h2></strong> " .$tarefa['descricao'] .
-                "<div><button class='btn btn-primary'>Editar tarefa</button> <button class='btn btn-danger' onclick='excluirTarefa(".$tarefa['id'].','.$tarefa['id_lista_tarefa']. ")'>Excluir Tarefa</button> <button class='checkbtn' onclick='checkIcon(".$tarefa['id'].",".$tarefa['situacao'].")'>⬜</button></div>
-                </div>";
+                .$tarefa['nome'] . "</h2></strong> " .$tarefa['descricao'] .
+                "<button class='btn btn-danger' onclick='excluirTarefa(" . $tarefa['id'] . "," . $tarefa['id_lista_tarefa'] . ")'>Excluir Tarefa</button> 
+                <button class='checkbtn' onclick='checkIcon(" . $tarefa['id'] . ",\"" . $tarefa['situacao'] . "\")' id='check-" . $tarefa['id'] . "'>";
+                if($tarefa['situacao']=='pendente'){
+                    print "⬜";
+                }else{
+                    print"✅";
+                }
+                
+                print"</button></div>
+            </div>";
         } 
     } else {
         print "<p>Nenhuma tarefa encontrada para esta lista.</p>";
@@ -48,4 +56,3 @@ if ($id_lista > 0) {
 } else {
     print "<p>Lista de tarefas não encontrada.</p>";  
 }
- 
