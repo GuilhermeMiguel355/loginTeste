@@ -11,19 +11,21 @@
     <div class="collum card card-central">
 
         <div class="card-body">
+            <div id="erro" style="color:red;"></div>
             <h1 style="text-align: center">Registre-se</h1>
             <form action="../controller/register.php" method="POST">
                 <input type="text" class="form-control label-central" name="nome" placeholder="Nome Completo" required>
                 <div class="mb-3"></div>
-                <input type="text" class="form-control label-central" name="usuario" placeholder="Usuário" required>
+                <input type="text" class="form-control label-central" id="usuario" name="usuario" placeholder="Usuário" oninput="checarUsuario()" required>
                 <div class="mb-3"></div>
                 <input type="email" class="form-control label-central" name="email" placeholder="Email" required>
                 <div class="mb-3"></div>
                 <input type="password" class="form-control label-central" name="senha" placeholder="Senha" required>
-                <button type="submit" class="btn btn-primary form-control bt-confirmar pulse">Enviar</button>
+                <button type="submit" id="bt-confirmar" class="btn btn-primary form-control bt-confirmar pulse">Enviar</button>
             </form>
         </div>
     </div>
 
 </div>
+<script src="..\controller\js\checar_usuario.js"></script>
 </body>
