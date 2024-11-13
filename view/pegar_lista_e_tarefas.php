@@ -51,7 +51,6 @@ if ($id_lista > 0) {
         } 
     } else {
         print "<p>Nenhuma tarefa encontrada para esta lista.</p>";
-        
     }
 } else {
     print "<p>Lista de tarefas não encontrada.</p>";  

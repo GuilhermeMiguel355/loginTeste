@@ -15,10 +15,8 @@
             $_SESSION['nome'] = $user['nome'];
             header('Location: ../view/dashboard.php');
         } else {
-            print  "<script>alert('Senha e/ou usuário incorreto(s)!');</script>";
-            header('Location: ../index.php');
             
+            header('Location: ../index.php');
         }
     }
-    
 ?>
