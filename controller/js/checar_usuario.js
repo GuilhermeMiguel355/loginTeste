@@ -1,6 +1,6 @@
 function checarUsuario() {
-    var usuario = document.getElementById('usuario').value; // Pega o valor do input
-    var botao = document.getElementById('bt-confirmar'); // Botão de cadastro
+    var usuario = document.getElementById('usuario').value;
+    var botao = document.getElementById('bt-confirmar'); 
 
     
     var xhttp = new XMLHttpRequest();
